@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>Flask ToDo App</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="task" placeholder="Enter task" required>
+        <input type="submit" value="Add Task">
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ loop.index }}. {{ task }}
+                <a href="/delete/{{ loop.index0 }}">❌ Delete</a>
+            </li>
+        {% else %}
+            <li>No tasks yet!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
